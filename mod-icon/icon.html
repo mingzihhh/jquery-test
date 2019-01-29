@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1023746_bhe7inrwh9v.css">
+    <title>Document</title>
+    <style>
+        .iconfont {
+            font-size: 32px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <span class="play-pause"><i class="iconfont icon-play"></i></span>
+    <script>
+        $('.play-pause').on('click',function(){
+            var play = $(this).find('.iconfont')
+            play.toggleClass('icon-play').toggleClass('icon-pause')
+        })
+    </script>
+</body>
+</html>
