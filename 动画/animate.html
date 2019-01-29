@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <title>JS Bin</title>
+    <style>
+        #box {
+            position:relative;
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+    <button id="btn">开始动画</button>
+    <button id="btn1">clearQueue</button>
+    <button id="btn2">finish</button>
+    <button id="btn3">stop</button>
+    <button id="btn4">stop(true)</button>
+    <button id="btn5">stop(true,true)</button>
+    <span id="result"></span>
+    <div id="box"></div>
+    <script>
+        $('#btn').click(function () {
+            setInterval(function () {
+                $('#result').html('队列数是:' + $('#box').queue().length)
+            }, 1000)
+            $('#box').animate({
+                    'left': '100px'
+                }, 1000)
+                .animate({
+                    'width': '200px'
+                }, 1000);
+            $('#box').queue(function () {
+                $(this).css('height', '200px');
+                $(this).dequeue();
+            },1000)
+            $('#box').animate({
+                    'left': '0'
+                }, 1000)
+                .animate({
+                    'width': '100px',
+                    'height':'100px'
+                }, 1000);
+        });
+
+        $('#btn1').click(function () {
+            $('#box').clearQueue();
+        })
+        $('#btn2').click(function () {
+            $('#box').finish();
+        })
+        $('#btn3').click(function () {
+            $('#box').stop()
+        })
+        $('#btn4').click(function () {
+            $('#box').stop(true)
+        })
+        $('#btn5').click(function () {
+            $('#box').stop(true, true)
+        })
+    </script>
+
+</body>
+
+</html>

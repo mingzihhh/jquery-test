@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        $.ajax({
+            type:'GET',
+            url:'test.json'
+        }).done(function(res){
+            console.log(res,typeof(res))
+        });
+        $.get('test.json',function(res){
+            console.log(res,typeof(res))
+        })
+        $.getJSON('test.json',function(res){
+            console.log(res,typeof(res))
+        })
+        
+    </script>
+</body>
+</html>
